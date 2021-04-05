@@ -1,6 +1,19 @@
 import React, { Component } from 'react'
 
 class TodoForm extends Component {
+    constructor() {
+        super();
+        this.state = {
+            value: ''
+        }
+    }
+
+    handleInputChange = (event) => {
+        this.setState({
+            value: event.target.value
+        })
+    }
+    
     render() {
         return (
             <div>
@@ -9,6 +22,8 @@ class TodoForm extends Component {
                         type='text'
                         name='todo'
                         placeholder='todo task'
+                        value={this.state.value}
+                        onChange={this.handleInputChange}
                     />
                     <button>Add New Todo Item</button>
                     <button>Clear Completed Tasks</button>
