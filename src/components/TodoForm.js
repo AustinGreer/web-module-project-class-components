@@ -13,11 +13,19 @@ class TodoForm extends Component {
             value: event.target.value
         })
     }
+
+    handleAddNewItem = (event) => {
+        event.preventDefault();
+        this.props.addItem(this.state.value)
+        this.setState({
+            value: ''
+        })
+    }
     
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleAddNewItem}>
                     <input
                         type='text'
                         name='todo'
@@ -25,7 +33,7 @@ class TodoForm extends Component {
                         value={this.state.value}
                         onChange={this.handleInputChange}
                     />
-                    <button>Add New Todo Item</button>
+                    <button type='submit'>Add New Todo Item</button>
                     <button>Clear Completed Tasks</button>
                 </form>
             </div>
