@@ -6,7 +6,7 @@ class TodoList extends Component {
         return (
             <div>
                 {this.props.todo.map(item => {
-                    return <Todo todo={item} />
+                    return <Todo key={item.id} todo={item} toggleCompletedTask={this.props.toggleCompletedTask} />
                 })}
             </div>
         )
