@@ -2,7 +2,6 @@ import React from 'react';
 
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-import { initialState } from './initialState';
 
 import './App.css';
 import styled from 'styled-components';
@@ -11,7 +10,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todo: initialState
+      todo: [{
+        task: '',
+        id: 0,
+        completed: false
+      }]
     }
   }
 
