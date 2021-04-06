@@ -21,6 +21,11 @@ class TodoForm extends Component {
             value: ''
         })
     }
+
+    handleClearItems = (event) => {
+        event.preventDefault();
+        this.props.clearItem()
+    }
     
     render() {
         return (
@@ -34,7 +39,7 @@ class TodoForm extends Component {
                         onChange={this.handleInputChange}
                     />
                     <button type='submit'>Add New Todo Item</button>
-                    <button>Clear Completed Tasks</button>
+                    <button onClick={this.handleClearItems}>Clear Completed Tasks</button>
                 </form>
             </div>
         )
