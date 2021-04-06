@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
 class Todo extends Component {
     handleCompletedTask = () => {
@@ -7,16 +8,25 @@ class Todo extends Component {
     
     render() {
         return (
-            <div>
+            <StyledTodo>
                 <ul>
                     <li 
                         className={this.props.todo.completed ? 'completed' : 'incomplete'}
                         onClick={this.handleCompletedTask}
                     >{this.props.todo.task}</li>
                 </ul>
-            </div>
+            </StyledTodo>
         )
     }
 }
+
+const StyledTodo = styled.div`
+    font-size: 30px;
+    font-family: sans-serif;
+    
+    ul {
+        list-style-type: none;
+    }
+`
 
 export default Todo;
